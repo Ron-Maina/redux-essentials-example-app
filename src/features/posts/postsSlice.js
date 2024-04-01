@@ -12,14 +12,24 @@ const postsSlice = createSlice({
         // can write reducer function directly like below
         postAdded(state, action){
             state.push(action.payload)
-        }
+        },
         // or like a key value pair
         // postAdded: (state, action) => {
         //     state.push(action.payload)
         // }
+        postUpdated(state,action){
+            // destructuring an object
+            const { id, title, content } = action.payload
+            const existingPost = state.find(post => post.id === id)
+
+            if (existingPost) {
+                existingPost.title = title
+                existingPost.content = content
+            }
+        }
     }
 })
 
-export const { postAdded } = postsSlice.actions
+export const { postAdded, postUpdated } = postsSlice.actions
 
 export default postsSlice.reducer
