@@ -25,6 +25,7 @@ export const SinglePostPage = ({ match }) => {
                 <h2>{post.title}</h2>
                 <p className="post-content">{post.content}</p>
                 <PostAuthor userId={post.user} />
+                <br/>
                 <Link to={`/editPost/${post.id}`} className="button">
                     Edit Post
                 </Link>

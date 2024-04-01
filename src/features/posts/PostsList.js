@@ -12,6 +12,7 @@ function PostsList() {
             <h3>{post.title}</h3>
             <p className="post-content">{post.content.substring(0, 100)}</p>
             <PostAuthor userId={post.user} />
+            <br/>
             <Link to={`/posts/${post.id}`} className="button muted-button">
                 View Post
             </Link>
