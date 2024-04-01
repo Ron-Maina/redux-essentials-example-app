@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
+import { ReactionButtons } from './ReactionButtons'
 
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params
@@ -24,11 +25,16 @@ export const SinglePostPage = ({ match }) => {
         <section>
             <article className="post">
                 <h2>{post.title}</h2>
+
                 <div>
                     <PostAuthor userId={post.user} />
                     <TimeAgo timestamp={post.date} />
                 </div>
+
                 <p className="post-content">{post.content}</p>
+
+                <ReactionButtons post={post} />
+
                 <Link to={`/editPost/${post.id}`} className="button">
                     Edit Post
                 </Link>
